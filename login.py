@@ -45,7 +45,7 @@ contraunovariable = None
 correodosvariable = None
 contradosvariable = None
 codigovairable = None
-
+#AQUI ESTÁ EL ICONO PRINCIPAL Y EL FONDO DE LA PRIMERA PAGINA DEL LOGIN
 icono_principal = os.path.join(os.path.dirname(__file__), "favicon.ico") 
 ruta_actual = os.path.dirname(__file__)
 ruta_imagen = os.path.join(ruta_actual, "fondo_principal.jpg")
@@ -353,7 +353,7 @@ contraunovariable = StringVar(value="")
 correodosvariable = StringVar(value="")
 contradosvariable = StringVar(value="")
 codigovairable = StringVar(value="")
-
+#VENTANA PRINCIPAL LOGIN
 presentacion.iconbitmap(icono_principal)
 presentacion.geometry("810x540+450+100")
 presentacion.resizable(False, False)
@@ -371,18 +371,17 @@ if fondo_principaltk:
 
 
 
-titulo = Label(fondo_canvas_principal, text="""
-    Bienvenidos!
+titulo = Label(fondo_canvas_principal, text="""Bienvenidos!
     Esperemos nuestra boletería
     pueda ofrecerles un buen servicio""", 
-    font=("Arial", 18, "bold"), justify="center", fg="white", bg="gray10")
+    font=("Arial", 18, "bold"), justify="center", fg="white", bg=fondo_canvas_principal['bg'])
 fondo_canvas_principal.create_window(100, 50, window=titulo, anchor="nw") 
 
 botonaregistro = Button(fondo_canvas_principal, text="Registrarse", fg="ghost white", font=("Arial",9,"bold"),
     command=haciaregistro, bd=5, relief="raised", bg="gray20")
 fondo_canvas_principal.create_window(240, 200, window=botonaregistro, anchor="nw")
 
-botonalogin = Button(fondo_canvas_principal, text="Iniciar sesion", fg="ghost white", font=("Arial",9,"bold"),
+botonalogin = Button(fondo_canvas_principal, text="Iniciar Sesion", fg="ghost white", font=("Arial",9,"bold"),
  command=hacialogin, bd=5, relief="raised", bg="gray20")
 fondo_canvas_principal.create_window(460, 200, window=botonalogin, anchor="nw")
 
