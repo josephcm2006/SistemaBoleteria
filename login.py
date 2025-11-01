@@ -151,7 +151,7 @@ def haciaregistro():
         
         botonenviar1 = Button(registro, text="Enviar email", command=enviarmeil, fg="white",
             bg="gray20",font=("Arial",9,"bold"),bd=5,relief="raised")
-        botonenviar1.place(relx=0.4,rely=0.4)
+        botonenviar1.place(relx=0.415,rely=0.4) #relx fue corregido para centrar el boton de email
         
         volver1 = Button(registro, text="Volver", command=confirmar_volver,
             fg="white",bg="gray20",font=("Arial",9,"bold"),bd=5,relief="raised")
@@ -380,12 +380,12 @@ servicio"""
 
 fondo_canvas_principal.create_text(400, 350, text=titulo_texto, fill="white", font=("Arial", 18, "bold"), justify="center")
 
-botonaregistro = Button(fondo_canvas_principal, text="Registrarse", fg="ghost white", font=("Arial",9,"bold"),
-    command=haciaregistro, bd=5, relief="raised", bg="gray20")
+botonaregistro = Button(fondo_canvas_principal, text="Registrarse", fg="black", font=("Arial",9,"bold"),
+    command=haciaregistro, bd=5, relief="raised", bg="white")
 fondo_canvas_principal.create_window(240, 400, window=botonaregistro, anchor="nw")
 
-botonalogin = Button(fondo_canvas_principal, text="Iniciar Sesion", fg="ghost white", font=("Arial",9,"bold"),
- command=hacialogin, bd=5, relief="raised", bg="gray20")
+botonalogin = Button(fondo_canvas_principal, text="Iniciar Sesion", fg="black", font=("Arial",9,"bold"),
+ command=hacialogin, bd=5, relief="raised", bg="white")
 fondo_canvas_principal.create_window(460, 400, window=botonalogin, anchor="nw")
 
 
