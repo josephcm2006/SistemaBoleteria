@@ -131,9 +131,10 @@ def haciaregistro():
         registro2.withdraw()
         
     if registro is None:
-        registro = Toplevel()    
+        registro = Toplevel()
+        registro.iconbitmap(icono_principal)    
         registro.title("Registro")
-        registro.geometry("500x500+450+100")
+        registro.geometry("500x500+500+125")
         registro.resizable(False, False)
         registro.config(bg="gray10")
 
@@ -178,8 +179,9 @@ def haciaregistro2():
         
     if registro2 is None:
         registro2 = Toplevel()
+        registro2.iconbitmap(icono_principal)
         registro2.title("Completar Registro")
-        registro2.geometry("500x500+450+100")
+        registro2.geometry("500x500+500+125")
         registro2.config(bg="gray10")
 
         Label(registro2, text="Complete su registro", font=("Arial", 14,"bold"), bg="gray10",
@@ -229,8 +231,9 @@ def hacialogin():
 
     if iniciosesion is None:
         iniciosesion = Toplevel()
+        iniciosesion.iconbitmap(icono_principal)
         iniciosesion.title("Inicio de sesión")
-        iniciosesion.geometry("500x500+450+100")
+        iniciosesion.geometry("500x500+500+125")
         iniciosesion.resizable(False, False)
         iniciosesion.config(bg="gray10")
 
@@ -355,7 +358,7 @@ contradosvariable = StringVar(value="")
 codigovairable = StringVar(value="")
 #VENTANA PRINCIPAL LOGIN
 presentacion.iconbitmap(icono_principal)
-presentacion.geometry("810x540+450+100")
+presentacion.geometry("810x540+350+120")
 presentacion.resizable(False, False)
 presentacion.title("BoleteriaOficial")
 presentacion.config(bg="gray10")
@@ -367,23 +370,23 @@ fondo_canvas_principal.pack(fill="both", expand=True)
 if fondo_principaltk:
     fondo_canvas_principal.create_image(0, 0, image=fondo_principaltk, anchor="nw")
     fondo_canvas_principal.image = fondo_principaltk
-    
 
 
 
-titulo = Label(fondo_canvas_principal, text="""Bienvenidos!
-    Esperemos nuestra boletería
-    pueda ofrecerles un buen servicio""", 
-    font=("Arial", 18, "bold"), justify="center", fg="white", bg=fondo_canvas_principal['bg'])
-fondo_canvas_principal.create_window(100, 50, window=titulo, anchor="nw") 
+titulo_texto = """
+¡Bienvenidos!
+Esperemos nuestra boletería pueda ofrecerles el mejor
+servicio"""
+
+fondo_canvas_principal.create_text(400, 350, text=titulo_texto, fill="white", font=("Arial", 18, "bold"), justify="center")
 
 botonaregistro = Button(fondo_canvas_principal, text="Registrarse", fg="ghost white", font=("Arial",9,"bold"),
     command=haciaregistro, bd=5, relief="raised", bg="gray20")
-fondo_canvas_principal.create_window(240, 200, window=botonaregistro, anchor="nw")
+fondo_canvas_principal.create_window(240, 400, window=botonaregistro, anchor="nw")
 
 botonalogin = Button(fondo_canvas_principal, text="Iniciar Sesion", fg="ghost white", font=("Arial",9,"bold"),
  command=hacialogin, bd=5, relief="raised", bg="gray20")
-fondo_canvas_principal.create_window(460, 200, window=botonalogin, anchor="nw")
+fondo_canvas_principal.create_window(460, 400, window=botonalogin, anchor="nw")
 
 
 presentacion.mainloop()
