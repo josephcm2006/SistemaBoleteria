@@ -21,6 +21,8 @@ registro = None
 registro2 = None
 iniciosesion = None
 paginaprincipal = None
+terminospag=None
+resenaspag=None
 
 
 entradacontra2 = None
@@ -134,7 +136,7 @@ def haciaregistro():
         registro = Toplevel()
         registro.iconbitmap(icono_principal)    
         registro.title("Registro")
-        registro.geometry("500x500+500+125")
+        registro.geometry("1079x720+225+35")
         registro.resizable(False, False)
         registro.config(bg="gray10")
 
@@ -181,7 +183,7 @@ def haciaregistro2():
         registro2 = Toplevel()
         registro2.iconbitmap(icono_principal)
         registro2.title("Completar Registro")
-        registro2.geometry("500x500+500+125")
+        registro2.geometry("1079x720+175+0")
         registro2.config(bg="gray10")
 
         Label(registro2, text="Complete su registro", font=("Arial", 14,"bold"), bg="gray10",
@@ -233,7 +235,7 @@ def hacialogin():
         iniciosesion = Toplevel()
         iniciosesion.iconbitmap(icono_principal)
         iniciosesion.title("Inicio de sesión")
-        iniciosesion.geometry("500x500+500+125")
+        iniciosesion.geometry("1079x720+175+0")
         iniciosesion.resizable(False, False)
         iniciosesion.config(bg="gray10")
 
@@ -294,7 +296,7 @@ def haciaprincipal():
         if paginaprincipal is None:
             paginaprincipal = Toplevel()
             paginaprincipal.title("Boleteria")
-            paginaprincipal.geometry("500x500+450+100")
+            paginaprincipal.geometry("1079x720+175+0")
             paginaprincipal.resizable(False, False)
             paginaprincipal.config(bg="gray10")
 
@@ -334,6 +336,40 @@ def confirmar_volver():
 def nad():
     return
 
+def haciarese():
+    global resenaspag
+    if resenaspag is None:
+        resenaspag=Toplevel()
+        resenaspag.geometry("1079x720+175+0")
+        presentacion.withdraw()
+        boton=Button(resenaspag,text="regresar",command=volver_rese)
+        boton.pack()
+    else:
+        resenaspag.deiconify()
+        presentacion.withdraw()
+
+
+def volver_rese():
+    presentacion.deiconify()
+    resenaspag.withdraw()
+    
+def haciaterminos():
+    global terminospag
+    if terminospag is None:
+        terminospag=Toplevel()
+        terminospag.geometry("970x620+175+0")
+        boton=Button(terminospag,text="volver",command=volver_terminos)
+        boton.pack()
+        presentacion.withdraw()
+    else:
+        terminospag.deiconify()
+        presentacion.withdraw()
+def volver_terminos():
+    presentacion.deiconify()
+    terminospag.withdraw()
+    
+    
+
 
 
 presentacion = Tk() 
@@ -358,7 +394,7 @@ contradosvariable = StringVar(value="")
 codigovairable = StringVar(value="")
 #VENTANA PRINCIPAL LOGIN
 presentacion.iconbitmap(icono_principal)
-presentacion.geometry("810x540+350+120")
+presentacion.geometry("1079x720+225+35")
 presentacion.resizable(False, False)
 presentacion.title("BoleteriaOficial")
 presentacion.config(bg="gray10")
@@ -373,20 +409,55 @@ if fondo_principaltk:
 
 
 
-titulo_texto = """
-¡Bienvenidos!
-Esperemos nuestra boletería pueda ofrecerles el mejor
-servicio"""
+titulo_texto = """¡Bienvenido!"""
+fondo_canvas_principal.create_text(535,280, text=titulo_texto, fill="white", font=("Arial", 20, "bold"), justify="center")
+#b o t o n    r e g i s t r a r s e
+registrarse_texto = """Registrarse"""
+registrarse_texto = fondo_canvas_principal.create_text(535, 345, text=registrarse_texto, fill="white", font=("Arial", 17, "bold"), justify="center")
+#hacerlo clickeable
+fondo_canvas_principal.tag_bind(registrarse_texto, "<Button-1>", lambda e: haciaregistro())
 
-fondo_canvas_principal.create_text(400, 350, text=titulo_texto, fill="white", font=("Arial", 18, "bold"), justify="center")
+fondo_canvas_principal.tag_bind(registrarse_texto, "<Enter>", lambda e: [fondo_canvas_principal.itemconfig(registrarse_texto, fill="#00BFFF"), 
+fondo_canvas_principal.config(cursor="hand2"), fondo_canvas_principal.update_idletasks()])
 
-botonaregistro = Button(fondo_canvas_principal, text="Registrarse", fg="black", font=("Arial",9,"bold"),
-    command=haciaregistro, bd=5, relief="raised", bg="white")
-fondo_canvas_principal.create_window(240, 400, window=botonaregistro, anchor="nw")
-
-botonalogin = Button(fondo_canvas_principal, text="Iniciar Sesion", fg="black", font=("Arial",9,"bold"),
- command=hacialogin, bd=5, relief="raised", bg="white")
-fondo_canvas_principal.create_window(460, 400, window=botonalogin, anchor="nw")
+fondo_canvas_principal.tag_bind(registrarse_texto, "<Leave>", lambda e: [fondo_canvas_principal.itemconfig(registrarse_texto, fill="white"),
+fondo_canvas_principal.config(cursor=""), fondo_canvas_principal.update_idletasks()])
 
 
+#b o t o n  iniciar sesion
+Iniciarsesion_texto = """Iniciar sesión"""
+Iniciarsesion_texto = fondo_canvas_principal.create_text(535, 437, text=Iniciarsesion_texto, fil="white",font=("Arial", 17, "bold"), justify="center")
+#click click
+fondo_canvas_principal.tag_bind(Iniciarsesion_texto, "<Button-1>", lambda e: hacialogin())
+
+fondo_canvas_principal.tag_bind(Iniciarsesion_texto, "<Enter>", lambda e: [fondo_canvas_principal.itemconfig(Iniciarsesion_texto, fill="#00BFFF"),
+fondo_canvas_principal.config(cursor="hand2"), fondo_canvas_principal.update_idletasks()])
+
+fondo_canvas_principal.tag_bind(Iniciarsesion_texto, "<Leave>", lambda e: [fondo_canvas_principal.itemconfig(Iniciarsesion_texto, fil="white"),
+fondo_canvas_principal.config(cursor=""), fondo_canvas_principal.update_idletasks()])
+
+#boton de terminos
+terminos = """Términos"""
+terminos = fondo_canvas_principal.create_text(450, 543, text=terminos, fil="white",font=("Arial", 13, "bold"), justify="center")
+#click click
+fondo_canvas_principal.tag_bind(terminos, "<Button-1>", lambda e: haciaterminos())
+fondo_canvas_principal.tag_bind(terminos, "<Enter>", lambda e: [fondo_canvas_principal.itemconfig(terminos, fill="#00BFFF"),
+fondo_canvas_principal.config(cursor="hand2"), fondo_canvas_principal.update_idletasks()])
+
+fondo_canvas_principal.tag_bind(terminos, "<Leave>", lambda e: [fondo_canvas_principal.itemconfig(terminos, fil="white"),
+fondo_canvas_principal.config(cursor=""), fondo_canvas_principal.update_idletasks()])
+#boton de reseñas
+
+reseñas = """Reseñas"""
+reseñas = fondo_canvas_principal.create_text(630, 543, text=reseñas, fil="white",font=("Arial", 13, "bold"), justify="center")
+#click click
+fondo_canvas_principal.tag_bind(reseñas, "<Button-1>", lambda e: haciarese())
+fondo_canvas_principal.tag_bind(reseñas, "<Enter>", lambda e: [fondo_canvas_principal.itemconfig(reseñas, fill="#00BFFF"),
+fondo_canvas_principal.config(cursor="hand2"), fondo_canvas_principal.update_idletasks()])
+
+fondo_canvas_principal.tag_bind(reseñas, "<Leave>", lambda e: [fondo_canvas_principal.itemconfig(reseñas, fil="white"),
+fondo_canvas_principal.config(cursor=""), fondo_canvas_principal.update_idletasks()])
+
+
+ 
 presentacion.mainloop()
