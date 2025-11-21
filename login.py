@@ -136,7 +136,7 @@ def haciaregistro():
         registro = Toplevel()
         registro.iconbitmap(icono_principal)    
         registro.title("Registro")
-        registro.geometry("1079x720+225+35")
+        registro.geometry("970x620+175+0")
         registro.resizable(False, False)
         registro.config(bg="gray10")
 
@@ -183,7 +183,7 @@ def haciaregistro2():
         registro2 = Toplevel()
         registro2.iconbitmap(icono_principal)
         registro2.title("Completar Registro")
-        registro2.geometry("1079x720+175+0")
+        registro2.geometry("970x620+175+0")
         registro2.config(bg="gray10")
 
         Label(registro2, text="Complete su registro", font=("Arial", 14,"bold"), bg="gray10",
@@ -235,7 +235,7 @@ def hacialogin():
         iniciosesion = Toplevel()
         iniciosesion.iconbitmap(icono_principal)
         iniciosesion.title("Inicio de sesión")
-        iniciosesion.geometry("1079x720+175+0")
+        iniciosesion.geometry("970x620+175+0")
         iniciosesion.resizable(False, False)
         iniciosesion.config(bg="gray10")
 
@@ -296,7 +296,7 @@ def haciaprincipal():
         if paginaprincipal is None:
             paginaprincipal = Toplevel()
             paginaprincipal.title("Boleteria")
-            paginaprincipal.geometry("1079x720+175+0")
+            paginaprincipal.geometry("970x620+175+0")
             paginaprincipal.resizable(False, False)
             paginaprincipal.config(bg="gray10")
 
@@ -340,7 +340,7 @@ def haciarese():
     global resenaspag
     if resenaspag is None:
         resenaspag=Toplevel()
-        resenaspag.geometry("1079x720+175+0")
+        resenaspag.geometry("970x620+175+0")
         presentacion.withdraw()
         boton=Button(resenaspag,text="regresar",command=volver_rese)
         boton.pack()
@@ -366,7 +366,7 @@ def haciaterminos():
         presentacion.withdraw()
 def volver_terminos():
     presentacion.deiconify()
-    terminospag.withdraw()
+    terminos.withdraw()
     
     
 
@@ -394,7 +394,7 @@ contradosvariable = StringVar(value="")
 codigovairable = StringVar(value="")
 #VENTANA PRINCIPAL LOGIN
 presentacion.iconbitmap(icono_principal)
-presentacion.geometry("1079x720+225+35")
+presentacion.geometry("1079x720+175+0")
 presentacion.resizable(False, False)
 presentacion.title("BoleteriaOficial")
 presentacion.config(bg="gray10")
@@ -409,7 +409,7 @@ if fondo_principaltk:
 
 
 
-titulo_texto = """¡Bienvenido!"""
+titulo_texto = """¡Bienvenidos!"""
 fondo_canvas_principal.create_text(535,280, text=titulo_texto, fill="white", font=("Arial", 20, "bold"), justify="center")
 #b o t o n    r e g i s t r a r s e
 registrarse_texto = """Registrarse"""
@@ -437,7 +437,7 @@ fondo_canvas_principal.tag_bind(Iniciarsesion_texto, "<Leave>", lambda e: [fondo
 fondo_canvas_principal.config(cursor=""), fondo_canvas_principal.update_idletasks()])
 
 #boton de terminos
-terminos = """Términos"""
+terminos = """Terminos"""
 terminos = fondo_canvas_principal.create_text(450, 543, text=terminos, fil="white",font=("Arial", 13, "bold"), justify="center")
 #click click
 fondo_canvas_principal.tag_bind(terminos, "<Button-1>", lambda e: haciaterminos())
@@ -459,5 +459,4 @@ fondo_canvas_principal.tag_bind(reseñas, "<Leave>", lambda e: [fondo_canvas_pri
 fondo_canvas_principal.config(cursor=""), fondo_canvas_principal.update_idletasks()])
 
 
- 
 presentacion.mainloop()
